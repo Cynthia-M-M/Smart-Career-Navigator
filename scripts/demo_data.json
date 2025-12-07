@@ -1,0 +1,101 @@
+{
+  "users": [
+    {
+      "name": "Demo User",
+      "email": "demo@example.com",
+      "current_role": "Software Engineer",
+      "target_role": "Senior Software Engineer",
+      "experience_years": 3.0
+    }
+  ],
+  "skills": [
+    {"name": "Python", "category": "Technical"},
+    {"name": "JavaScript", "category": "Technical"},
+    {"name": "React", "category": "Technical"},
+    {"name": "Node.js", "category": "Technical"},
+    {"name": "AWS", "category": "Technical"},
+    {"name": "Docker", "category": "Technical"},
+    {"name": "Kubernetes", "category": "Technical"},
+    {"name": "SQL", "category": "Technical"},
+    {"name": "MongoDB", "category": "Technical"},
+    {"name": "PostgreSQL", "category": "Technical"},
+    {"name": "Git", "category": "Technical"},
+    {"name": "CI/CD", "category": "Technical"},
+    {"name": "Machine Learning", "category": "Technical"},
+    {"name": "Data Science", "category": "Technical"},
+    {"name": "TensorFlow", "category": "Technical"},
+    {"name": "PyTorch", "category": "Technical"},
+    {"name": "Agile", "category": "Soft"},
+    {"name": "Scrum", "category": "Soft"},
+    {"name": "Project Management", "category": "Soft"},
+    {"name": "Leadership", "category": "Soft"}
+  ],
+  "roles": [
+    {
+      "title": "Software Engineer",
+      "industry": "Technology",
+      "level": "mid",
+      "salary_min": 80000,
+      "salary_max": 120000,
+      "growth_rate": 15.0,
+      "required_skills": ["Python", "JavaScript", "Git", "Agile"]
+    },
+    {
+      "title": "Senior Software Engineer",
+      "industry": "Technology",
+      "level": "senior",
+      "salary_min": 120000,
+      "salary_max": 180000,
+      "growth_rate": 12.0,
+      "required_skills": ["Python", "React", "AWS", "Docker", "Leadership"]
+    },
+    {
+      "title": "Data Scientist",
+      "industry": "Technology",
+      "level": "mid",
+      "salary_min": 90000,
+      "salary_max": 140000,
+      "growth_rate": 20.0,
+      "required_skills": ["Python", "Machine Learning", "SQL", "Data Science"]
+    },
+    {
+      "title": "DevOps Engineer",
+      "industry": "Technology",
+      "level": "mid",
+      "salary_min": 100000,
+      "salary_max": 150000,
+      "growth_rate": 18.0,
+      "required_skills": ["AWS", "Docker", "Kubernetes", "CI/CD", "Python"]
+    }
+  ],
+  "courses": [
+    {
+      "title": "Complete Python Bootcamp",
+      "provider": "Udemy",
+      "category": "Programming",
+      "cost": 89.99,
+      "duration_hours": 60,
+      "rating": 4.6,
+      "teaches_skills": ["Python"]
+    },
+    {
+      "title": "React - The Complete Guide",
+      "provider": "Udemy",
+      "category": "Web Development",
+      "cost": 94.99,
+      "duration_hours": 50,
+      "rating": 4.7,
+      "teaches_skills": ["React", "JavaScript"]
+    },
+    {
+      "title": "AWS Certified Solutions Architect",
+      "provider": "Coursera",
+      "category": "Cloud Computing",
+      "cost": 49.99,
+      "duration_hours": 40,
+      "rating": 4.5,
+      "teaches_skills": ["AWS"]
+    }
+  ]
+}
+

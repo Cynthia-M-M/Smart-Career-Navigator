@@ -1,7 +1,7 @@
+```markdown
 # 🧭 Smart Career Path Navigator
 
 ![Jac](https://img.shields.io/badge/Built_with-Jac-orange?style=for-the-badge)
-![AI Agents](https://img.shields.io/badge/AI-Multi_Agent-blueviolet?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Hackathon_MVP-success?style=for-the-badge)
 
 An enterprise-grade AI-powered career planning platform built with **Jaseci (Jac)**, **byLLM**, **Jac Client**, and **OSP Graph**.
@@ -43,7 +43,10 @@ The **Smart Career Path Navigator** bridges the gap between current skills and f
 
 * **Python 3.8+**
 * **Jac (Jaseci)** installed:
-pip install jaclang
+  ```bash
+  pip install jaclang
+
+```
 
 * **OpenAI API Key** (for byLLM agents)
 * **Node.js** (optional, for frontend tooling)
@@ -54,53 +57,83 @@ pip install jaclang
 
 ### 1. Clone & Setup
 
-git clone https://github.com/your-username/smart-career-navigator.git cd smart-career-navigator python -m venv venv
+```bash
+git clone [https://github.com/your-username/smart-career-navigator.git](https://github.com/your-username/smart-career-navigator.git)
+cd smart-career-navigator
+python -m venv venv
 
+```
 
-**Activate virtual environment:**
+### 2. Activate Virtual Environment
 
-* **Windows:**
-    ```
-    venv\Scripts\activate
-    ```
-* **Linux / macOS:**
-    ```
-    source venv/bin/activate
-    ```
+**For Windows:**
+
+```bash
+venv\Scripts\activate
+
+```
+
+**For Linux / macOS:**
+
+```bash
+source venv/bin/activate
+
+```
 
 **Install dependencies:**
+
+```bash
 pip install -r requirements.txt
 
+```
 
-### 2. Configure Environment
+### 3. Configure Environment
 
 Copy the example environment file:
+
+```bash
 cp .env.example .env
 
+```
 
-Edit `.env`:
-OPENAI_API_KEY=your_openai_api_key_here JOB_API_KEY=your_job_api_key_here JOB_API_URL=https://api.example.com/jobs
+Edit your `.env` file with these keys:
 
+```env
+OPENAI_API_KEY=your_openai_api_key_here
+JOB_API_KEY=your_job_api_key_here
+JOB_API_URL=[https://api.example.com/jobs](https://api.example.com/jobs)
 
-### 3. Initialize Backend
+```
 
-Development mode
+### 4. Initialize Backend
+
+**Run in Development Mode:**
+
+```bash
 jac run backend/main.jac
 
-Serve as API
+```
+
+**Or Serve as API:**
+
+```bash
 jac serve backend/main.jac
 
+```
 
 > Server runs at: `http://localhost:8000`
 
-### 4. Setup Frontend
+### 5. Setup Frontend
 
 The frontend uses Jac Client.
 
-1.  `frontend/index.html` loads the Jac Client bundle.
-2.  Open directly in browser or serve via HTTP server:
+1. `frontend/index.html` loads the Jac Client bundle.
+2. Open directly in browser or serve via HTTP server:
 
+```bash
 python -m http.server 8080
+
+```
 
 > Navigate to: `http://localhost:8080/frontend/`
 
@@ -113,57 +146,102 @@ python -m http.server 8080
 All walkers are automatically exposed as API endpoints.
 
 **Parse Resume**
-POST /walker/parse_resume Content-Type: application/json
+
+```bash
+POST /walker/parse_resume
+Content-Type: application/json
 
 { "resume_text": "..." }
 
+```
 
 **Skill Gap Analysis**
-POST /walker/skill_gap_analysis Content-Type: application/json
+
+```bash
+POST /walker/skill_gap_analysis
+Content-Type: application/json
 
 { "user_id": "demo@example.com", "target_role_title": "Senior Software Engineer" }
 
+```
 
 **Generate Learning Path**
-POST /walker/generate_learning_path Content-Type: application/json
+
+```bash
+POST /walker/generate_learning_path
+Content-Type: application/json
 
 { "user_id": "demo@example.com", "target_role_title": "Senior Software Engineer" }
 
+```
 
 ---
 
 ## 🧪 Demo Data
 
 Seed demo graph data:
+
+```bash
 jac run backend/walkers/demo_data.jac
 
+```
 
 Or via API:
+
+```bash
 POST /walker/seed_demo_data
 
+```
 
 ---
 
 ## 📁 Project Structure
 
-smart-career-navigator/ ├── backend/ │ ├── models/ # OSP Graph models │ ├── walkers/ # Business logic walkers │ ├── agents/ # byLLM AI agents │ ├── algorithms/ # Graph algorithms │ ├── utils/ # Utilities │ ├── main.jac # Entry point │ └── config.jac # Configuration ├── frontend/ │ ├── pages/ # Page components │ ├── components/ # Reusable components │ ├── services/ # API services │ ├── app.jac # Main app │ └── index.html # HTML entry ├── docs/ # Documentation └── scripts/ # Setup scripts
+```text
+smart-career-navigator/
+├── backend/
+│   ├── models/          # OSP Graph models
+│   ├── walkers/         # Business logic walkers
+│   ├── agents/          # byLLM AI agents
+│   ├── algorithms/      # Graph algorithms
+│   ├── utils/           # Utilities
+│   ├── main.jac         # Entry point
+│   └── config.jac       # Configuration
+├── frontend/
+│   ├── pages/           # Page components
+│   ├── components/      # Reusable components
+│   ├── services/        # API services
+│   ├── app.jac          # Main app
+│   └── index.html       # HTML entry
+├── docs/                # Documentation
+└── scripts/             # Setup scripts
 
+```
 
 ---
 
 ## 🔧 Development
 
-**Run Backend:**
-Development
+**Run Backend (Development):**
+
+```bash
 jac run backend/main.jac
 
-Production
+```
+
+**Run Backend (Production):**
+
+```bash
 jac serve backend/main.jac --host 0.0.0.0 --port 8000
 
+```
 
 **Test Walkers via CLI:**
+
+```bash
 jac run -walker parse_resume -ctx '{"resume_text": "..."}' backend/main.jac
 
+```
 
 ---
 
@@ -191,3 +269,7 @@ Created for an AI Hackathon.
 * **Jaseci / Jac Language**
 * **OpenAI** for LLM capabilities
 * **Gebeya Dala** for AI infrastructure
+
+```
+
+```

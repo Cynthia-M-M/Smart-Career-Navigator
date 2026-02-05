@@ -64,3 +64,164 @@ venv\Scripts\activate
 source venv/bin/activate
 
 pip install -r requirements.txt
+2. Configure Environment
+Copy .env.example to .env and fill in your API keys:
+
+Bash
+
+cp .env.example .env
+Edit .env:
+
+Code snippet
+
+OPENAI_API_KEY=your_openai_api_key_here
+JOB_API_KEY=your_job_api_key_here
+JOB_API_URL=[https://api.example.com/jobs](https://api.example.com/jobs)
+3. Initialize Backend
+Bash
+
+# Start Jaseci server
+jac run backend/main.jac
+
+# Or serve as API
+jac serve backend/main.jac
+The server will start on http://localhost:8000 by default.
+
+4. Setup Frontend
+The frontend uses Jac Client.
+
+The frontend/index.html loads the Jac Client bundle.
+
+Open in browser or serve with a simple HTTP server.
+
+📖 Usage
+Backend API
+All walkers are automatically exposed as API endpoints:
+
+Bash
+
+# Parse resume
+POST /walker/parse_resume
+Body: {"resume_text": "..."}
+
+# Get user profile
+POST /walker/get_user_profile
+Body: {"user_id": "demo@example.com"}
+
+# Recommend roles
+POST /walker/recommend_roles_walker
+Body: {"user_id": "demo@example.com", "limit": 10}
+
+# Skill gap analysis
+POST /walker/skill_gap_analysis
+Body: {"user_id": "demo@example.com", "target_role_title": "Senior Software Engineer"}
+
+# Generate learning path
+POST /walker/generate_learning_path
+Body: {"user_id": "demo@example.com", "target_role_title": "Senior Software Engineer"}
+Frontend
+Open frontend/index.html in a browser.
+
+Or serve with a web server:
+
+Bash
+
+python -m http.server 8080
+# Navigate to http://localhost:8080/frontend/
+Login with demo credentials (or any email/password for demo).
+
+Explore the dashboard and features.
+
+🧪 Demo Data
+Seed demo data to populate the graph:
+
+Bash
+
+jac run backend/walkers/demo_data.jac
+Or use the walker via API:
+
+Bash
+
+POST /walker/seed_demo_data
+📁 Project Structure
+Plaintext
+
+smart-career-navigator/
+├── backend/
+│   ├── models/          # OSP Graph models
+│   ├── walkers/         # Business logic walkers
+│   ├── agents/          # byLLM AI agents
+│   ├── algorithms/      # Graph algorithms
+│   ├── utils/           # Utilities
+│   ├── main.jac         # Entry point
+│   └── config.jac       # Configuration
+├── frontend/
+│   ├── pages/           # Page components
+│   ├── components/      # Reusable components
+│   ├── services/        # API services
+│   ├── app.jac          # Main app
+│   └── index.html       # HTML entry
+├── docs/                # Documentation
+└── scripts/             # Setup scripts
+🔧 Development
+Running Backend
+Bash
+
+# Development mode
+jac run backend/main.jac
+
+# Production mode (API server)
+jac serve backend/main.jac --host 0.0.0.0 --port 8000
+Testing Walkers
+Bash
+
+# Test a walker directly via CLI
+jac run -walker parse_resume -ctx '{"resume_text": "..."}' backend/main.jac
+📚 API Documentation
+See docs/API.md for complete API documentation with examples.
+
+🎨 Features
+✅ Resume parsing with AI
+
+✅ Skill extraction and analysis
+
+✅ Skill gap detection
+
+✅ Personalized career path generation
+
+✅ Learning roadmap creation
+
+✅ Course recommendations
+
+✅ Job matching
+
+✅ Market trend analysis
+
+✅ OSP graph visualization
+
+✅ Multi-agent AI system
+
+🤝 Contributing
+This is a hackathon project. For production use, consider:
+
+Adding authentication/authorization.
+
+Implementing persistent storage.
+
+Adding more job API integrations.
+
+Enhancing graph visualization.
+
+Adding more AI agents.
+
+Improving error handling.
+
+📝 License
+This project is created for the AI Hackathon.
+
+🙏 Acknowledgments
+Jaseci/Jac Language
+
+OpenAI for LLM capabilities
+
+Gebeya Dala for AI infrastructure

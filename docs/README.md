@@ -1,4 +1,3 @@
-```markdown
 # 🧭 Smart Career Path Navigator
 
 ![Jac](https://img.shields.io/badge/Built_with-Jac-orange?style=for-the-badge)
